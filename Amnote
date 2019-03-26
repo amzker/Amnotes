@@ -82,7 +82,7 @@ nano DATA/logs/logs.txt
 fi ;
 
 if [ $opi = $o5 ] ; then
-wget http://amzux.site11..com/idea.txt
+wget amzux.site11.com/idea.txt
 mv idea.txt core/idea/
 nano core/idea/idea.txt
 echo "New Idea File Downloaded by" $user $dt>>DATA/logs/logs.txt
