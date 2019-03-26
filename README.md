@@ -1,0 +1,2 @@
+# Amnotes
+IDE For IdeaS
