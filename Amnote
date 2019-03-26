@@ -1,0 +1,89 @@
+#!/bin/bash
+dt=$(date)
+user=$(whoami)
+o1="1"
+o2="2"
+o3="3"
+o4="4"
+o5="5"
+clear
+        echo "Welcome TO Amnote The Baddas IDE"
+	echo "				      "
+	echo "+----------------+"
+	echo "[1] GenralIdea   |"
+	echo "+----------------+"
+	echo "[2] Project      |"
+	echo "+----------------+"
+	echo "[3] Reminder     |"
+	echo "+----------------+"
+	echo "[4] Logs         |"
+	echo "+----------------+"
+	echo "[5] Need Idea    |"
+	echo "+----------------+"
+	read  opi
+if [ $opi = $o1 ] ; then
+nano DATA/Gidea/Genral-idea.txt
+echo "Added Idea by" $user $dt >>DATA/logs/logs.txt
+fi ;
+
+if [ $opi = $o2 ] ; then
+clear;
+  echo "================="
+  tree DATA/Projects/
+  echo "================="
+  echo "Select or Create "
+	echo ""
+
+	echo "Project Name"
+	read pr
+	mkdir -p DATA/Projects/$pr
+	echo "Project Name" $pr $dt >>DATA/logs/logs.txt
+		echo  "In Which Language??"
+		echo  " [1] Bash Script "
+		echo  " [2] Python      "
+		echo  " [3] PHP		"
+		echo  " [4] Other	"
+		read ppr
+
+			if [ $ppr = $o1 ] ; then
+			nano DATA/Projects/$pr/$pr.sh
+			echo "bash project by" $user $pr  $dt>>DATA/logs/logs.txt
+			caja DATA/Projects/$pr/
+			fi ;
+
+			if [ $ppr = $o2 ] ; then
+			nano DATA/Projects/$pr/$pr.py
+			echo "Python project by" $user $pr  $dt>>DATA/logs/logs.txt
+			caja DATA/Projects/$pr/
+			fi ;
+
+			if [ $ppr = $o3 ] ; then
+			nano DATA/Projects/$pr/$pr.php
+			echo "php project by " $user $pr  $dt>>DATA/logs/logs.txt
+			caja DATA/Projects/$pr/
+			fi ;
+
+			if [ $ppr = $o4 ] ; then
+			nano DATA/Projects/$pr/$pr
+			echo "other project by "$user $pr  $dt>>DATA/logs/logs.txt
+			caja DATA/Projects/$pr/
+			fi ;
+
+fi ;
+
+if [ $opi = $o3 ] ; then
+nano DATA/reminder/remin.txt
+echo "Reminder edited by " $user $dt>>DATA/logs/logs.txt
+fi ;
+
+
+if [ $opi = $o4 ] ; then
+nano DATA/logs/logs.txt
+fi ;
+
+if [ $opi = $o5 ] ; then
+wget http://amzux.site11..com/idea.txt
+mv idea.txt core/idea/
+nano core/idea/idea.txt
+echo "New Idea File Downloaded by" $user $dt>>DATA/logs/logs.txt
+fi ;
